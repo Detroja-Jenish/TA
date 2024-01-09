@@ -6,20 +6,34 @@
     <title>Document</title>
     <style>
         tr{
+            height: 200px;
             scale: 0;
-            background-color: black;
+            /* background-color: black; */
             animation: show linear forwards;
             animation-timeline: view();
-            animation-range-end: 100px;
+            animation-range-end: 200px;
             animation-range-start: entry;
             font-size: 0px;
+            font-weight: bolder;
+            font-family: monospace;
+        }
+        tr:nth-child(2n+1){
+            background-color: #79AEB2;
+            color: #4A6274;
+        }
+        tr:nth-child(2n){
+            background-color: white;
+            color: black;
+        }
+        td{
+            min-width: 50px;
         }
 
         @keyframes show {
             to{
                 scale: 1;
-                background-color: wheat;
-                font-size: 20px;
+                /* background-color: white; */
+                font-size: 23px;
             }
         }
 
