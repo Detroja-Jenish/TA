@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        tr{
+            scale: 0;
+            background-color: black;
+            animation: show linear forwards;
+            animation-timeline: view();
+            animation-range-end: 100px;
+            animation-range-start: entry;
+            font-size: 0px;
+        }
+
+        @keyframes show {
+            to{
+                scale: 1;
+                background-color: wheat;
+                font-size: 20px;
+            }
+        }
+
+    </style>
 </head>
 <body>
     
