@@ -44,10 +44,13 @@
     <div id="content"></div>
     <script>
         table([])
+        
         function table(data){
+            let count=0;
             console.log("sdnfj")
             jsx = "<table border='1' width='1500'>"
             jsx += `<tr>
+            <th> srno. </th>
                 <th> name </th>
                 <th> sem </th>
                 <th> gender </th>
@@ -60,12 +63,14 @@
                 `
             
             for (row of data){
+                count += 1
                 const {fullName, enroll, sem, email, favSports, address, gender, city, img} = row;
                 sports = '';
                 for(sport of favSports){
                     sports += `<li>${sport}</li>`
                 }
                jsx += `<tr align='center'> 
+               <td> ${count} </td>
                 <td> ${fullName} </td>
                 <td> ${sem}</td>
                 <td> ${gender} </td>
