@@ -13,12 +13,13 @@
     <a href="./WebPageWithTable/profile.html">Profile Page</a><br><br><hr><br><br>
     <a href="./WebPageWithTable/lms.html">Lms page</a><br><br><hr><br><br>
     <a href='./forms/index.html'>form example</a><br><br><hr><br><br>
-    <p style='font-size: 30px;'><b>  https://ta-demo.onrender.com/send  </b></p> <button onclcick='copy' > copy link </button>
+    <p style='font-size: 30px;'><b>  https://ta-demo.onrender.com/send  </b></p> <button onclcick='copy()' > copy link </button>
     <a href='./forms/output.html'>form data output</a><br><br><hr><br><br>
     <a href='https://ta-demo.onrender.com/clearAll'>clear form data</a><br><br><hr><br><br>
 
     <script>
         const copy = async () => {
+            console.log('btn clicked')
             try {
               await navigator.clipboard.writeText('https://ta-demo.onrender.com/send ');
                 Swal.fire("now paste in your form's action field");
