@@ -18,7 +18,7 @@
     <a href='https://ta-demo.onrender.com/clearAll'>clear form data</a><br><br><hr><br><br>
 
     <script>
-        function copy(){
+        const copy = async () => {
             try {
               await navigator.clipboard.writeText('https://ta-demo.onrender.com/send ');
                 Swal.fire("now paste in your form's action field");
