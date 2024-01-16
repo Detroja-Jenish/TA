@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table cellpadding="10" border="2" >
+            <caption>
+                create Account
+            </caption>
+            <tr>
+                <td>Name*<br><input type="text" placeholder="enter your first name"/></td>
+                <td>Last Name<br><input type="text" placeholder="enter your last name"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    email<br>
+                    <input type="email" placeholder="enter your email" style="width:100%"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password*<br>
+                    <input type="password" placeholder="enter your password"/>
+                </td>
+                <td>
+                    Confirm Password*<br>
+                    <input type="password" placeholder="enter your password again"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender<br>
+                    <input type="radio" value="male" name="gender">male
+                    <input type="radio" value="female" name="gender">female
+                </td>
+                <td>
+                    Hobbies<br>
+                    <input type="checkbox" value="music" name="gender">Music
+                    <input type="checkbox" value="sports" name="gender">Sports
+                    <input type="checkbox" value="travel" name="gender">Travel
+                    <input type="checkbox" value="Movies" name="gender">Movies
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Source of Income<br>
+                    <select>
+                        <option>Employee</option>
+                        <option>bussiness</option>
+                        <option>trading</option>
+                    </select>
+                </td>
+                <td>
+                    Income<br>
+                    <input type="range" min="0" max="100">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Upload Profile Picture<br>
+                    <input type="file"/>
+                </td>
+                <td>
+                    Age<br>
+                    <input type="number"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Bio<br>
+                    <textarea cols="70" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right" >
+                    <input type="submit" value="create" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
