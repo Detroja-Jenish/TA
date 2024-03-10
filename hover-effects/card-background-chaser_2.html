@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        body{
+            height: 150vh;
+            padding: 100px;
+        }
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: repeat(9, 200px);
+            position: relative;
+            padding: 10px;
+            background-color: #111;
+            /* border-radius: 42px; */
+        }
+        .card-wrapper{
+            padding: 20px;
+            z-index: 10;
+            border: 1px solid white;
+        }
+        .card{
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+            /* background: linear-gradient(purple, red) */
+        }
+        .card-chaser{
+            background-color: rgb(243, 147, 3);
+            transform: scale(0);
+            position: absolute;
+            z-index: 5;
+            transition-duration: 0.5;
+            border-radius: 20px;
+
+        }
+
+        .card-wrapper:hover ~ .card-chaser{
+            transform: scale(1);
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in-out;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="card-wrapper" col="1" colspan="1" row="1" rowspan="2"><div class="card"></div></div>
+        <div class="card-wrapper" col="2" colspan="2" row="1" rowspan="1"><div class="card"></div></div>
+        <div class="card-wrapper" col="2" colspan="2" row="2" rowspan="3"><div class="card"></div></div>
+        <div class="card-wrapper" col="4" colspan="1" row="1" rowspan="5"><div class="card"></div></div>
+        <div class="card-wrapper" col="1" colspan="1" row="3" rowspan="5"><div class="card"></div></div>
+        <div class="card-wrapper" col="2" colspan="3" row="6" rowspan="3"><div class="card"></div></div>
+        <div class="card-wrapper" col="2" colspan="1" row="5" rowspan="1"><div class="card"></div></div>
+        <div class="card-wrapper" col="3" colspan="1" row="5" rowspan="1"><div class="card"></div></div>
+        <div class="card-wrapper" col="1" colspan="1" row="8" rowspan="1"><div class="card"></div></div>
+        <div class="card-wrapper" col="1" colspan="2" row="9" rowspan="1"><div class="card"></div></div>
+        <div class="card-wrapper" col="3" colspan="2" row="9" rowspan="1"><div class="card"></div></div>
+        <div class="card-chaser"></div>
+    </div>
+    <script>
+        card_wrappers = document.getElementsByClassName("card-wrapper")
+        card_chaser = document.getElementsByClassName('card-chaser')[0]
+        cards = document.getElementsByClassName('card')
+        for(let card_wrapper of card_wrappers){
+            card_wrapper.style.gridColumn = `${card_wrapper.getAttribute('col')} / span ${card_wrapper.getAttribute('colspan')}`
+            card_wrapper.style.gridRow = `${card_wrapper.getAttribute('row')} / span ${card_wrapper.getAttribute('rowspan')}`
+            card_wrapper.onmouseenter = (e)=>{
+                let ecard_wrapper = card_wrapper
+                
+                card_chaser.style.width = `${ecard_wrapper.offsetWidth - 20}px`
+                card_chaser.style.height = `${ecard_wrapper.offsetHeight - 20}px`
+                card_chaser.style.top = `${ecard_wrapper.offsetTop + 10}px`
+                card_chaser.style.left = `${ecard_wrapper.offsetLeft + 10}px`
+                card_chaser.style.backgroundColor = randomColor()
+            }
+        }
+
+        for(let card of cards){
+            let color = `linear-gradient(${Math.random()*360}deg,${randomColor()},${randomColor()})`
+            console.log(color);
+            card.style.background = color
+        }
+        function randomColor(){
+            hexs = ["0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f","0","1","2","3","4",'5',"6","7","8","9","a","b","c","d","e","f"]
+            rColor = "#";
+            for(i = 0; i<6; i++){
+                rColor += hexs[ Math.ceil(Math.random()*270)];
+            }
+            console.log(rColor)
+            return rColor;
+        }
+    </script>
+    
+</body>
+</html>

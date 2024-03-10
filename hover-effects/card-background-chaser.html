@@ -1,0 +1,213 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .card-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: 100px; */
+            column-gap: 16px;
+            row-gap: 16px;
+        }
+        .card-wrapper{
+            aspect-ratio: 1;
+            border: 1px solid black;
+            padding: 32px;
+            border-radius: 48px;
+        }
+        .card{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, purple, orange);
+            border-radius: 16px;
+        }
+
+        .card-chaser{
+            background-color: #1111119f;
+            transition-duration:0.4s ;
+        }
+        
+        .card-wrapper:first-child:hover ~ .card-chaser, .card-wrapper:first-child{
+            grid-area: 1 / 1 / span 1 / span 1 ;
+        }
+        .card-wrapper:nth-child(2), .card-wrapper:nth-child(2):hover ~ .card-chaser{
+            grid-area: 1 / 2 / span 1 / span 1 ;
+        }
+        .card-wrapper:nth-child(3), .card-wrapper:nth-child(3):hover ~ .card-chaser{
+            grid-area: 1 / 3 / span 1 / span 1 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-grid">
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-chaser card-wrapper"></div>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card-background-chaser</title>
+    <style>
+        .bg-1{
+            background-color: #111;
+        }
+        .card-chaser-bg-1{
+            background-color: rgba(255, 255, 255, 0.289);
+            backdrop-filter: blur(20px);
+        }
+        .card-chaser-bg-2{
+            background-color: rgba(0, 0, 0, 0.599);
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .component{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .card-wrapper{
+            width: 33%;
+            height: 400px;
+            padding: 32px;
+            z-index: 5;
+        }
+        .card{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, purple, orange);
+            border-radius: 32px;
+        }
+        .w-66{
+            width: 66%;
+        }
+        .h-800{
+            height: 800px;
+        }
+        .card-chaser{
+            position: absolute;
+            backdrop-filter: blur(20px);
+            top: 0px;
+            border-radius: 64px;
+            z-index: 3;
+            transform: scale(0);
+        }
+        .card-wrapper:hover ~ .card-chaser{
+            transition-duration: 0.3s;
+
+        }
+        .card-wrapper:nth-child(1):hover ~ .card-chaser{
+            top:0px;
+            left: 0px;
+            transform: scale(1);
+        }
+        .card-wrapper:nth-child(2):hover ~ .card-chaser{
+            top:0px;
+            left: 33%;
+            transform: scale(1);
+        }
+        .card-wrapper:nth-child(3):hover ~ .card-chaser{
+            top:0px;
+            left: 66%;
+            transform: scale(1);
+        }
+        .card-wrapper:nth-child(4):hover ~ .card-chaser{
+            top:400px;
+            left: 0px;
+            transform: scale(1);
+            width: 66%;
+        }
+        .card-wrapper:nth-child(5):hover ~ .card-chaser{
+            top:400px;
+            left: 66%;
+            transform: scale(1);
+        }
+        .card-wrapper:nth-child(6):hover ~ .card-chaser{
+            top:800px;
+            left: 0%;
+            height: 800px;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="component bg-1">
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper w-66" >
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper h-800">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper card-chaser card-chaser-bg-1">
+        </div>
+       
+    </div>
+
+    <div class="component bg-2">
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper w-66" >
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper h-800">
+            <div class="card"></div>
+        </div>
+        <div class="card-wrapper card-chaser card-chaser-bg-2">
+        </div>
+       
+    </div>
+</body>
+</html>
