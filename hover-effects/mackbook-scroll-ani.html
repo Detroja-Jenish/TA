@@ -18,7 +18,6 @@
         }
         .mackbook{
             max-width: 500px;
-            /* max-height: 600px; */
             width: 80vw;
             aspect-ratio: 500/600;
             margin-inline: auto;
@@ -61,31 +60,24 @@
 
         @keyframes animate {
             50%{
-                /* top: 200px; */
-                transform: translateZ(150px);
+                transform: translateZ(150px) scale(0.8);
             }60%{
                 transform-origin: top;
-
                 transform: translateZ(150px) rotateX(25deg) ;
-
             }
             80%{
-                /* top: 700px; */
                 transform-origin: top;
                 transform: translateZ(150px) translateY(1000px)  rotateX(25deg) scale(1.6);
                 
             }
             100%{
-                /* top: 700px; */
                 transform-origin: top;
                 transform: translateZ(150px) translateY(1000px)  rotateX(25deg) scale(1.6);
-                
             }
         }
     </style>
 </head>
 <body>
-    <div style="border: 1px solid red;">
         <h1> Just scroll down for see Magic </h1>
         <h1>This Macbook is built By Jenish.No kidding.</h1>
         <div class="mackbook">
@@ -96,6 +88,5 @@
     
             </div>
         </div>
-    </div>
 </body>
 </html>
