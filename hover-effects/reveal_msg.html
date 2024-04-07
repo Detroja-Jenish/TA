@@ -37,8 +37,12 @@
         #placeholder{
             color: grey;
             padding-block: 1em;
-            mask-image: linear-gradient(90deg,transparent 0% var(--remove-char-percentage),white var(--remove-char-percentage) 100%);
+            mask-image: linear-gradient(90deg,white 0% 50%,transparent 50% 100%);
+            mask-size: 200%;
+            mask-position: var(--remove-char-percentage) 0%;
         }
+
+
         #real{
             background-color: transparent;
             padding-block: 1em;
@@ -161,6 +165,7 @@
         msg.onmouseover = (e) => {
             if(flag){
                 real.style.transitionDuration = '0.1s'
+                placeholder.style.transitionDuration = '0.1s'
                 real.style.setProperty('--cursor-rotate-deg', `${(Math.random()>0.5)? '':'-'}${Math.random()*(15-5+1)+5}deg`);
                 real.style.setProperty('--cursor-display','block')
                 flag=false
@@ -171,15 +176,16 @@
             const x = e.clientX - msg.offsetLeft
             const remove_char_percentage = (x * 100)/msg.offsetWidth
             // msg.style.setProperty('--remove-char-percentage',`${remove_char_percentage}%`)
-            msg.style.setProperty('--remove-char-percentage',`${remove_char_percentage}%`)
+            msg.style.setProperty('--remove-char-percentage',`-${remove_char_percentage}%`)
             real.style.width = `${x}px`
         }
         msg.onmouseout = (e) => {
             
             real.style.setProperty('--cursor-display','none')
             real.style.transitionDuration = '0.5s'
+            placeholder.style.transitionDuration = '0.5s'
             real.style.width = '0px'
-            setTimeout(()=>{msg.style.setProperty('--remove-char-percentage',`0%`)},500)
+            msg.style.setProperty('--remove-char-percentage',`0%`)
             flag=true
             console.log(e,flag)
         }
