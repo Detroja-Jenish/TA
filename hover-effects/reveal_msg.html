@@ -79,7 +79,7 @@
         }
         .particle{
             position: absolute;
-            height: 5px;
+            height: 3px;
             border-radius: 50%;
             aspect-ratio: 1;
             background-color: yellow;
@@ -139,15 +139,15 @@
                 this.particle.style.scale = `${Math.random()*1.5}`
                 this.xa = Math.random()*3
                 this.ya = Math.random()*3
-                this.x = Math.random()*this.xlimit
-                this.y = Math.random()*this.ylimit
-                this.up = (Math.random() > 0.5)? 1 : -1 
-                this.left = (Math.random() > 0.5)? 1 : -1 
                 this.particle.style.scale = `${Math.random()*1.5}`
                 this.particle.style.animationDuration =`${Math.random()*4 + 2}s`
             }
             move(){
-                if(this.x < 10 || this.x > this.xlimit || this.y < 10 || this.y > this.ylimit || this.opacity > 1){
+                if(this.x < 10 || this.x > this.xlimit){
+                    this.left = -1*this.left
+                    this.reset()
+                }else if ( this.y < 10 || this.y > this.ylimit){
+                    this.up = -1*this.up
                     this.reset()
                 }
                 this.y += this.up*this.ya
